@@ -17,6 +17,7 @@ const displayPhones = phoneElements => {
     } else {
         showBtn.classList.add('hidden');
     }
+    
     phoneElements = phoneElements.slice(0, 12);
     console.log(phoneElements)
     phoneElements.forEach(phone => {
