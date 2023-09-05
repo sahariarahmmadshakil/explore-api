@@ -10,9 +10,17 @@ const loadPhone = async (searchPhones) => {
 
 const displayPhones = phoneElements => {
     const phonesArea = document.getElementById('phones');
-    phonesArea.innerText=''
-    phoneElements.forEach(phone => {       
-        const phoneContainer = document.createElement('div');        
+    phonesArea.innerText = ''
+    const showBtn = document.getElementById('show');
+    if (phoneElements.length > 12) {
+        showBtn.classList.remove('hidden');
+    } else {
+        showBtn.classList.add('hidden');
+    }
+    phoneElements = phoneElements.slice(0, 12);
+    console.log(phoneElements)
+    phoneElements.forEach(phone => {
+        const phoneContainer = document.createElement('div');
         phoneContainer.innerHTML = `
     <div class="card w-96 bg-base-100 shadow-xl">
         <figure>
@@ -27,13 +35,24 @@ const displayPhones = phoneElements => {
     </div>
     `
         phonesArea.appendChild(phoneContainer)
-        console.log()
+
     });
+    spinner(false)
 }
 
 const handleSearch = () => {
     const searchArea = document.getElementById('search').value;
-    loadPhone(searchArea)
+    loadPhone(searchArea);
+    spinner(true);
 }
 
-loadPhone()
+const spinner =(isLoading)=> {
+    const getSpinner = document.getElementById('spinner');
+    if (isLoading) {
+        getSpinner.classList.remove('hidden')
+    } else {
+        getSpinner.classList.add('hidden')
+    }
+    
+
+}

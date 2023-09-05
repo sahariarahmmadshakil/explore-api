@@ -12,13 +12,21 @@
 <body>
     <section>
         <div class="join">
-            <input class="input input-bordered join-item" placeholder="Search" id="search"/>
+            <input class="input input-bordered join-item" placeholder="Search" id="search" />
             <button class="btn join-item rounded-r-full" onclick="handleSearch()">Search</button>
-          </div> 
+        </div>
     </section>
-   <section id="phones" class="grid grid-cols-2 py-4">
+    <section class="py-6">
+        <a class="btn btn-primary hidden" id="show">Show All</a>
+    </section>
+    <section>
+        <div id="spinner" class="text-center hidden">
+            <span class="loading loading-spinner loading-lg"></span>
+        </div>
+    </section>
+    <section id="phones" class="grid grid-cols-2 py-4">
 
-   </section>
+    </section>
 
 
     <!-- js link  -->
